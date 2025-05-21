@@ -53,6 +53,8 @@ export const useSignUp = () => {
         setEmail,
         password,
         setPassword,
+        confirmPassword,
+        setConfirmPassword,
         phone,
         setPhone,
         type,

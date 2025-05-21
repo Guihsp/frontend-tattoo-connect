@@ -11,12 +11,15 @@ export default function SignUpScreen() {
         name, 
         email, 
         password, 
+        confirmPassword,
         phone, 
         type, 
         setName, 
         setEmail, 
         setPassword, 
-        setPhone, setType, 
+        setConfirmPassword,
+        setPhone, 
+        setType, 
         handleRegister, 
         error, 
         loading 
@@ -30,12 +33,13 @@ export default function SignUpScreen() {
                 name={name}
                 email={email}
                 password={password}
-                confirmPassword={password}
+                confirmPassword={confirmPassword}
                 phone={phone}
                 type={type}
                 onChangeName={setName}
                 onChangeEmail={setEmail}
                 onChangePassword={setPassword}
+                onChangeConfirmPassword={setConfirmPassword}
                 onChangePhone={setPhone}
                 onChangeType={setType}
                 onSubmit={handleRegister}

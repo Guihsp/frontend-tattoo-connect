@@ -16,6 +16,7 @@ interface RegisterFormProps {
     onChangeName: (name: string) => void;
     onChangeEmail: (email: string) => void;
     onChangePassword: (password: string) => void;
+    onChangeConfirmPassword: (confirmPassword: string) => void;
     onChangePhone: (phone: string) => void;
     onChangeType: (type: 'CLIENT' | 'TATTOO_ARTIST') => void;
     onSubmit: () => void;
@@ -33,6 +34,7 @@ export const RegisterForm = ({
     onChangeName,
     onChangeEmail,
     onChangePassword,
+    onChangeConfirmPassword,
     onChangePhone,
     onChangeType,
     onSubmit,
@@ -123,7 +125,7 @@ export const RegisterForm = ({
                 <Text style={styles.label}>Confirme sua senha:</Text>
                 <TextInput
                     value={confirmPassword}
-                    onChangeText={onChangePassword}
+                    onChangeText={onChangeConfirmPassword}
                     placeholder="Confirme sua senha..."
                     secureTextEntry={!showPassword}
                     style={styles.input}
