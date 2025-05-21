@@ -6,7 +6,7 @@ export default function TattooArtistLayout() {
     const { user } = useAuth();
 
     if (!user) {
-        return <Redirect href="/(auth)/signin" />;
+        return <Redirect href="/(auth)/signIn" />;
     }
 
     if (user.role !== 'TATTOO_ARTIST') {

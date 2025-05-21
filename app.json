@@ -5,21 +5,22 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "",
-    "scheme": "frontendtattoconnect",
+    "scheme": "",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
       "image": "./src/assets/images/splash.png",
+      "imageWidth": 200,
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1C1C1C"
     },
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./src/assets/images/splash.png",
+        "backgroundColor": "#1c1c1c"
       },
       "edgeToEdgeEnabled": true
     },

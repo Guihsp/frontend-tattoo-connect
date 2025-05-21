@@ -1,8 +1,11 @@
 import { Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { ActivityIndicator } from 'react-native';
+import * as SplashScreen from 'expo-splash-screen';
 
-import { AuthProvider } from '@/src/contexts/AuthContext';
+import { AuthProvider, useAuth } from '@/src/contexts/AuthContext';
+
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -13,7 +16,11 @@ export default function RootLayout() {
   });
 
   if (!fontsLoaded) {
-    return null;
+    return (
+      <SafeAreaProvider>
+        <ActivityIndicator size="large" color="#8E44AD" />
+      </SafeAreaProvider>
+    );
   }
 
   return (
