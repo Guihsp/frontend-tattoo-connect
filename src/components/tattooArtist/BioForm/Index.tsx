@@ -21,7 +21,6 @@ export default function BioForm({
     return (
         <View style={styles.formContainer}>
             <View>
-                <Text style={styles.label}>Digite sua bio:</Text>
                 <TextInput
                     value={bio}
                     onChangeText={onChangeBio}

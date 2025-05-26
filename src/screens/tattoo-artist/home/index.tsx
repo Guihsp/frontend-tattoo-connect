@@ -3,6 +3,7 @@ import { View, Text, Image } from 'react-native'
 import { useAuth } from '@/src/contexts/AuthContext';
 import Container from '@/src/components/global/Container';
 import CardButton from '@/src/components/buttons/CardButton'
+import Header from '@/src/components/global/Header';
 import icons from '@/src/assets/images';
 import { styles } from './styles';
 
@@ -10,10 +11,8 @@ export default function HomeScreen() {
     const {  handleSignOut} = useAuth();
 
     return ( 
-        <Container scrollable>
-            <Text onPress={handleSignOut}>
-                sair
-            </Text>
+        <Container scrollable justifyContent='flex-start'>
+            <Header/>
             <View style={styles.logoContainer}>
                 <Image
                     source={icons.logoHorizontal}
@@ -32,21 +31,7 @@ export default function HomeScreen() {
                     title='Gerenciar preços de tatuagens'
                     route='/(tattoo-artist)/tattooPrices'
                 />
-                <CardButton
-                    icon='home'
-                    title='Gerenciar portfólio'
-                    route='/(tattoo-artist)/portfolio'
-                />
-                <CardButton
-                    icon='home'
-                    title='Gerenciar portfólio'
-                    route='/(tattoo-artist)/portfolio'
-                />
-                <CardButton
-                    icon='home'
-                    title='Gerenciar portfólio'
-                    route='/(tattoo-artist)/portfolio'
-                />
+                
             </View>
         </Container>
     );

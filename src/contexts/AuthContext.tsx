@@ -100,7 +100,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             if (userData.type === 'CLIENT') {
                 router.replace('/(client)');
             } else if (userData.type === 'TATTOO_ARTIST') {
-                router.replace('/(tattoo-artist)/bioRegister');
+                router.replace('/(tattoo-artist)/bioForm');
             }
         } catch (error) {
             console.error('Error during sign-up:', error);

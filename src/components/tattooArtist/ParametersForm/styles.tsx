@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
         color: Colors.primaryText,
     },
     input: {
+        marginTop: 10,
         fontSize: 20,
         fontFamily: "Montserrat-Regular",
         paddingHorizontal: 20,
@@ -32,11 +33,24 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         gap: 10,
-    }, 
+    },
     error: {
         fontSize: 16,
         fontFamily: "Montserrat-Regular",
         color: Colors.error,
         textAlign: "center",
-    }
+    },
+    title: {
+        fontSize: 24,
+        fontFamily: 'Montserrat-SemiBold',
+        color: Colors.primaryText,
+        marginBottom: 20,
+        marginTop: 40,
+    },
+    category: {
+        fontSize: 20,
+        fontFamily: 'Montserrat-SemiBold',
+        color: Colors.primaryText,
+        marginBottom: 10,
+    },
 })

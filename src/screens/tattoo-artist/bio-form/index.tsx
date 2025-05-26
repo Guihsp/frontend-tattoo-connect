@@ -1,4 +1,4 @@
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 
 import Container from "@/src/components/global/Container";
 import BioForm from "@/src/components/tattooArtist/BioForm/Index";
@@ -17,6 +17,13 @@ export default function BioRegisterScreen() {
 
     return (
         <Container>
+
+            <View style={styles.bioContainer}>
+                <View style={styles.avatar} />
+                <Text style={styles.bioText}>
+                    {bio || "Escreva um pouco sobre você..."}
+                </Text>
+            </View>
 
             <BioForm
                 bio={bio}

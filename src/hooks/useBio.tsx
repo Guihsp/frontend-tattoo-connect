@@ -26,7 +26,7 @@ export const useBioRegister = () => {
         setLoading(true);
         try {
             await updateTattooArtist(bio);
-            router.replace('/(tattoo-artist)')
+            router.replace('/(tattoo-artist)/tattooParametersForm')
         } catch (error) {
             setLoading(false);
             setError("Erro ao atualizar a bio.");
