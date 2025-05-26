@@ -26,7 +26,7 @@ export default function SignUpScreen() {
     } = useSignUp();
         
     return (
-        <Container scrollable={true}>
+        <Container scrollable>
             <BackButton />
             <Text style={styles.title}>Cadastrar</Text>
             <RegisterForm 

@@ -18,3 +18,8 @@ export const getStudio = async (studioId: string) => {
     const response = await api.get(`/studios/tattoo-artists/${studioId}/studio`);
     return response.data;
 }
+
+export const updateStudio = async (studioId: string, payload: CreateStudioPayload) => {
+    const response = await api.put(`/studios/${studioId}`, payload);
+    return response.data;
+}

@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
     formContainer: {
         gap: 20,
         marginTop: 20,
+
     },
     typeContainer: {
         flexDirection: "row",

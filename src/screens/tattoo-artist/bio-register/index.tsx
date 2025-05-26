@@ -17,9 +17,6 @@ export default function BioRegisterScreen() {
 
     return (
         <Container>
-            <Text style={styles.title}>
-                Escreva uma breve descrição sobre você
-            </Text>
 
             <BioForm
                 bio={bio}

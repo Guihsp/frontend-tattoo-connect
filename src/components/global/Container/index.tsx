@@ -1,4 +1,4 @@
-import { View, ScrollView } from "react-native";
+import { View, ScrollView, SafeAreaView, KeyboardAvoidingView, Platform } from "react-native";
 import { styles } from "./styles";
 
 interface ContainerProps {
@@ -10,21 +10,35 @@ interface ContainerProps {
 export default function Container({ children, scrollable = false, justifyContent }: ContainerProps) {
     const containerStyle = {
         ...styles.container,
-        justifyContent: justifyContent || "center",
+        flex: 1,
     };
 
-    return (
-        <View style={containerStyle}>
-            {scrollable ? (
-                <ScrollView
-                    contentContainerStyle={{ flexGrow: 1, justifyContent: "center" }}
-                    showsVerticalScrollIndicator={false}
+    if (scrollable) {
+        return (
+            <SafeAreaView style={containerStyle}>
+                <KeyboardAvoidingView
+                    style={{ flex: 1 }}
+                    behavior={Platform.OS === "ios" ? "padding" : "height"}
+                    keyboardVerticalOffset={20}
                 >
-                    {children}
-                </ScrollView>
-            ) : (
-                children
-            )}
-        </View>
+                    <ScrollView
+                        contentContainerStyle={{
+                            flexGrow: 1,
+                            justifyContent: justifyContent || "center",
+                        }}
+                        showsVerticalScrollIndicator={false}
+                        keyboardShouldPersistTaps="handled"
+                    >
+                        {children}
+                    </ScrollView>
+                </KeyboardAvoidingView>
+            </SafeAreaView>
+        );
+    }
+
+    return (
+        <SafeAreaView style={{ ...containerStyle, justifyContent: justifyContent || "center" }}>
+            {children}
+        </SafeAreaView>
     );
 }

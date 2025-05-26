@@ -10,7 +10,7 @@ export default function HomeScreen() {
     const {  handleSignOut} = useAuth();
 
     return ( 
-        <Container justifyContent='flex-start'>
+        <Container scrollable>
             <Text onPress={handleSignOut}>
                 sair
             </Text>
@@ -31,6 +31,16 @@ export default function HomeScreen() {
                     icon='home'
                     title='Gerenciar preços de tatuagens'
                     route='/(tattoo-artist)/tattooPrices'
+                />
+                <CardButton
+                    icon='home'
+                    title='Gerenciar portfólio'
+                    route='/(tattoo-artist)/portfolio'
+                />
+                <CardButton
+                    icon='home'
+                    title='Gerenciar portfólio'
+                    route='/(tattoo-artist)/portfolio'
                 />
                 <CardButton
                     icon='home'

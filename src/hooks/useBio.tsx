@@ -25,7 +25,7 @@ export const useBioRegister = () => {
         if (!validate()) return;
         setLoading(true);
         try {
-            const response = await updateTattooArtist(bio);
+            await updateTattooArtist(bio);
             router.replace('/(tattoo-artist)')
         } catch (error) {
             setLoading(false);
