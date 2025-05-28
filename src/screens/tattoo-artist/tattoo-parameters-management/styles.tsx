@@ -1,22 +1,18 @@
 import { StyleSheet } from "react-native";
 import Colors from "@/src/constants/Colors";
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
     title: {
         fontSize: 24,
-        fontFamily: 'Montserrat-SemiBold',
+        fontFamily: "Montserrat-SemiBold",
         color: Colors.primaryText,
         marginBottom: 20,
-        marginTop: 40,
-    },
+    }, 
     titleList: {
         fontSize: 20,
-        fontFamily: 'Montserrat-SemiBold',
+        fontFamily: "Montserrat-SemiBold",
         color: Colors.primaryText,
-        marginBottom: 20,
-        marginTop: 40,
-    }
-
+        marginTop: 20,
+        marginBottom: 10,
+    },
 });
-
-export default styles;

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { getAllParameters, createTattooArtistParameter } from "@/src/services/api/parameters";
+import { getAllParameters, createTattooArtistParameter, getAllTattooArtistParameters } from "@/src/services/api/parameters";
 import { useAuth } from "@/src/contexts/AuthContext";
-import { useRouter } from "expo-router";
 
 export interface Parameter {
   id: string;
@@ -18,7 +17,7 @@ export const useTattooParameters = () => {
   const [grouped, setGrouped] = useState<Record<string, Parameter[]>>({});
   const [selected, setSelected] = useState<Record<string, ParameterWithPrice[]>>({});
   const [loading, setLoading] = useState(true);
-  const router = useRouter();
+  const [alreadyRegistered, setAlreadyRegistered] = useState<string[]>([]);
 
   const { user } = useAuth();
 
@@ -26,6 +25,12 @@ export const useTattooParameters = () => {
     (async () => {
       setLoading(true);
       const params = await getAllParameters();
+      let registered: string[] = [];
+      if (user) {
+        const registeredParams = await getAllTattooArtistParameters(user.id);
+        registered = registeredParams.map((p: any) => p.parameterId);
+        setAlreadyRegistered(registered);
+      }
       setParameters(params);
       const groupedParams: Record<string, Parameter[]> = {};
       params.forEach((p: Parameter) => {
@@ -35,26 +40,46 @@ export const useTattooParameters = () => {
       setGrouped(groupedParams);
       setLoading(false);
     })();
-  }, []);
+  }, [user]);
 
   const handleSelect = (category: string, param: Parameter, price: string) => {
+    setSelected((prev) => {
+      const alreadySelected = prev[category]?.some((p) => p.id === param.id);
+      if (alreadySelected) return prev;
+      return {
+        ...prev,
+        [category]: [...(prev[category] || []), { ...param, price }]
+      };
+    });
+  };
+
+  const handlePriceChange = (category: string, paramId: string, price: string) => {
     setSelected((prev) => ({
       ...prev,
-      [category]: [{ ...param, price }]
+      [category]: prev[category]?.map((p) =>
+        p.id === paramId ? { ...p, price } : p
+      ) || [],
+    }));
+  };
+
+  const removeSelected = (category: string, paramId: string) => {
+    setSelected((prev) => ({
+      ...prev,
+      [category]: prev[category]?.filter((p) => p.id !== paramId) || [],
     }));
   };
 
   const submitParameters = async () => {
     if (!user) throw new Error("Usuário não autenticado");
     for (const [category, params] of Object.entries(selected)) {
-      const param = params[0];
-      if (param && param.price) {
-        console.log(`Criando parâmetro para ${category}:`, param);
-        await createTattooArtistParameter(user.id, param.id, Number(param.price));
+      for (const param of params) {
+        if (param && param.price) {
+          await createTattooArtistParameter(user.id, param.id, Number(param.price));
+        }
       }
     }
-    router.replace('/(tattoo-artist)');
   };
 
-  return { grouped, selected, handleSelect, loading,submitParameters };
+  // NOVO: retorna também os parâmetros já cadastrados
+  return { grouped, selected, handleSelect, handlePriceChange, removeSelected, loading, submitParameters, alreadyRegistered };
 };

@@ -1,56 +1,72 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 import Colors from "@/src/constants/Colors";
 
 export const styles = StyleSheet.create({
     formContainer: {
         width: "100%",
         gap: 20,
-        paddingVertical: 40,
+        backgroundColor: Colors.background,
+        borderRadius: 16,
+        marginTop: 16,
+        marginBottom: 32,
     },
-    label: {
-        fontSize: 20,
+    title: {
+        fontSize: 22,
         fontFamily: "Montserrat-SemiBold",
         color: Colors.primaryText,
+        marginBottom: 8,
+        textAlign: "center",
+    },
+    category: {
+        fontSize: 18,
+        fontFamily: "Montserrat-SemiBold",
+        color: Colors.primaryText,
+        marginBottom: 6,
+        marginTop: 10,
     },
     input: {
-        marginTop: 10,
-        fontSize: 20,
+        fontSize: 18,
         fontFamily: "Montserrat-Regular",
-        paddingHorizontal: 20,
-        paddingVertical: 5,
-        height: 50,
+        paddingHorizontal: 16,
+        height: 48,
         backgroundColor: Colors.inputBackground,
-        borderRadius: 15,
+        borderRadius: 12,
         borderWidth: 2,
         borderColor: Colors.inputBorder,
         color: Colors.primaryText,
     },
-    inputPlaceholder: {
-        color: Colors.inputBorder,
-    },
-    textContainer: {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: 10,
+    picker: {
+        height: 48,
+        width: "100%",
+        backgroundColor: Colors.inputBackground,
+        color: Colors.primaryText,
+        borderRadius: 12,
+        borderWidth: 2,
+        borderColor: Colors.inputBorder,
+        marginBottom: 8,
+        fontFamily: "Montserrat-Regular",
     },
     error: {
-        fontSize: 16,
-        fontFamily: "Montserrat-Regular",
         color: Colors.error,
         textAlign: "center",
+        marginTop: 8,
+        fontFamily: "Montserrat-SemiBold",
     },
-    title: {
-        fontSize: 24,
-        fontFamily: 'Montserrat-SemiBold',
-        color: Colors.primaryText,
-        marginBottom: 20,
-        marginTop: 40,
+    selectedParamRow: {
+        flexDirection: "row",
+        alignItems: "center",
+        marginTop: 8,
+        gap: 8,
     },
-    category: {
-        fontSize: 20,
-        fontFamily: 'Montserrat-SemiBold',
-        color: Colors.primaryText,
-        marginBottom: 10,
+    removeButton: {
+        marginLeft: 8,
+        paddingHorizontal: 10,
+        paddingVertical: 4,
+        backgroundColor: Colors.error,
+        borderRadius: 8,
     },
-})
+    removeButtonText: {
+        color: "#fff",
+        fontFamily: "Montserrat-SemiBold",
+    },
+});

@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     bioContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 40,
+        marginVertical: 40,
     },
     avatar: {
         width: 90,
@@ -21,10 +21,18 @@ export const styles = StyleSheet.create({
         backgroundColor: Colors.quinary,
         marginRight: 20,
     },
+    bioTextContainer: {
+        flex: 1,
+    },
+    name: {
+        fontSize: 20,
+        fontFamily: 'Montserrat-SemiBold',
+        color: Colors.primaryText,
+        marginBottom: 8,
+    },
     bioText: {
         fontSize: 16,
         fontFamily: 'Montserrat-Regular',
         color: Colors.primaryText,
-        flex: 1,
     },
 });

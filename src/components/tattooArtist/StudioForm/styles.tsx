@@ -5,7 +5,6 @@ export const styles = StyleSheet.create({
     formContainer: {
         width: "100%",
         gap: 20,
-        paddingVertical: 40,
     },
     label: {
         fontSize: 20,

@@ -30,6 +30,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             if (storedToken) {
                 try {
                     const userData = await getUser();
+                    console.log('User data:', userData);
                     setUser({
                         id: userData.id,
                         name: userData.name,
@@ -73,7 +74,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
                 router.replace('/(tattoo-artist)');
             }
         } catch (error) {
-            console.error('Error during sign-in:', error);
+            throw new Error('E-mail ou senha incorretos.');
         }
     };
 
@@ -100,7 +101,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             if (userData.type === 'CLIENT') {
                 router.replace('/(client)');
             } else if (userData.type === 'TATTOO_ARTIST') {
-                router.replace('/(tattoo-artist)/bioForm');
+                router.replace('/(tattoo-artist)');
             }
         } catch (error) {
             console.error('Error during sign-up:', error);

@@ -9,5 +9,6 @@ export const styles = StyleSheet.create({
     }, 
     cards: {
         gap: 20,
+        marginTop: 20,
     },
 });

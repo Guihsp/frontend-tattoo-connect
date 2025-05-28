@@ -4,6 +4,7 @@ import Container from "@/src/components/global/Container";
 import BioForm from "@/src/components/tattooArtist/BioForm/Index";
 import { useBioRegister } from "@/src/hooks/useBio";
 import { styles } from "./styles";
+import BackButton from "@/src/components/buttons/BackButton";
 
 
 export default function BioRegisterScreen() {
@@ -17,12 +18,17 @@ export default function BioRegisterScreen() {
 
     return (
         <Container>
-
+            <BackButton />
             <View style={styles.bioContainer}>
                 <View style={styles.avatar} />
-                <Text style={styles.bioText}>
-                    {bio || "Escreva um pouco sobre você..."}
-                </Text>
+                <View style={styles.bioTextContainer}>
+                    <Text style={styles.name}>
+                        {loading ? "Carregando..." : "Seu Nome Aqui"}
+                    </Text>           
+                    <Text style={styles.bioText}>
+                        {loading ? "Carregando..." : (bio || "Escreva um pouco sobre você...")}
+                    </Text>
+                </View>
             </View>
 
             <BioForm
@@ -32,7 +38,6 @@ export default function BioRegisterScreen() {
                 error={error}
                 loading={loading}
             />
-                
         </Container>
     );
 }

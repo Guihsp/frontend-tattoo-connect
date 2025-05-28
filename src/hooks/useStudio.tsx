@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { createStudio } from '@/src/services/api/studio';
+import { useState, useEffect } from 'react';
+import { createStudio, getStudio, updateStudio } from '@/src/services/api/studio';
 import * as Location from 'expo-location';
 import { router } from 'expo-router';
 
-export const useStudio = () => {
+export const useStudio = (tattooArtistId?: string) => {
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
     const [latitude, setLatitude] = useState('');
@@ -11,6 +11,27 @@ export const useStudio = () => {
     const [phone, setPhone] = useState('');
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
+    const [studioId, setStudioId] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (!tattooArtistId) return;
+        (async () => {
+            try {
+                setLoading(true);
+                const studio = await getStudio(tattooArtistId);
+                if (studio) {
+                    setStudioId(studio.id);
+                    setName(studio.name || '');
+                    setAddress(studio.address || '');
+                    setPhone(studio.phone || '');
+                    setLatitude(studio.latitude?.toString() || '');
+                    setLongitude(studio.longitude?.toString() || '');
+                }
+            } catch (err) {} finally {
+                setLoading(false);
+            }
+        })();
+    }, [tattooArtistId]);
 
     const validate = () => {
         if (!name || !address || !phone) {
@@ -20,7 +41,7 @@ export const useStudio = () => {
         return true;
     };
 
-    const handleRegisterStudio = async () => {
+    const handleSaveStudio = async () => {
         setError(null);
         if (!validate()) return;
         setLoading(true);
@@ -31,9 +52,8 @@ export const useStudio = () => {
                 setLoading(false);
                 return;
             }
-    
+
             const results = await Location.geocodeAsync(address);
-            console.log('Geocode results:', results);
             if (!results.length) {
                 setError('Endereço não encontrado.');
                 setLoading(false);
@@ -41,20 +61,30 @@ export const useStudio = () => {
             }
             const { latitude, longitude } = results[0];
 
-            await createStudio({
-                name,
-                address,
-                latitude,
-                longitude,
-                phone,
-            });
+            if (studioId) {
+                await updateStudio(studioId, {
+                    name,
+                    address,
+                    latitude,
+                    longitude,
+                    phone,
+                });
+            } else {
+                await createStudio({
+                    name,
+                    address,
+                    latitude,
+                    longitude,
+                    phone,
+                });
+            }
             setLatitude(latitude.toString());
             setLongitude(longitude.toString());
 
-            router.replace('/(tattoo-artist)/studioManagement')            
+            alert('Estúdio salvo com sucesso!');
         } catch (err: any) {
-            setError('Erro ao cadastrar estúdio. Tente novamente.');
-            console.error('Error creating studio:', err);
+            setError('Erro ao salvar estúdio. Tente novamente.');
+            console.error('Error saving studio:', err);
         } finally {
             setLoading(false);
         }
@@ -71,8 +101,9 @@ export const useStudio = () => {
         setLongitude,
         phone,
         setPhone,
-        handleRegisterStudio,
+        handleSaveStudio,
         error,
         loading,
+        studioId,
     };
 };
