@@ -1,7 +1,7 @@
 import { Text, View } from "react-native";
 
 import Container from "@/src/components/global/Container";
-import BioForm from "@/src/components/tattooArtist/BioForm/Index";
+import BioForm from "@/src/components/tattooArtist/BioForm";
 import { useBioRegister } from "@/src/hooks/useBio";
 import { styles } from "./styles";
 import BackButton from "@/src/components/buttons/BackButton";
