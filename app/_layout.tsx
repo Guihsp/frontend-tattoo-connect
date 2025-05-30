@@ -4,15 +4,15 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ActivityIndicator, View, Text } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 
-import { AuthProvider, useAuth } from '@/src/contexts/AuthContext';
+import { AuthProvider, useAuth } from '@/contexts/AuthContext';
 
 
 export default function RootLayout() {
   const [fontsLoaded, fontError] = useFonts({
-    'Montserrat-Bold': require('@/src/assets/fonts/Montserrat-Bold.ttf'),
-    'Montserrat-Regular': require('@/src/assets/fonts/Montserrat-Regular.ttf'),
-    'Montserrat-SemiBold': require('@/src/assets/fonts/Montserrat-SemiBold.ttf'),
-    'Montserrat-Medium': require('@/src/assets/fonts/Montserrat-Medium.ttf'),
+    'Montserrat-Bold': require('@/assets/fonts/Montserrat-Bold.ttf'),
+    'Montserrat-Regular': require('@/assets/fonts/Montserrat-Regular.ttf'),
+    'Montserrat-SemiBold': require('@/assets/fonts/Montserrat-SemiBold.ttf'),
+    'Montserrat-Medium': require('@/assets/fonts/Montserrat-Medium.ttf'),
   });
 
   if (fontError) {

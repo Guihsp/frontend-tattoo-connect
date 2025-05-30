@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { View, TextInput, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import GenericButton from '@/src/components/buttons/GenericButton';
+import GenericButton from '@/components/buttons/GenericButton';
 import { styles } from './styles';
 import { router } from 'expo-router';
-import Colors from '@/src/constants/Colors';
+import Colors from '@/constants/Colors';
 
 interface Props {
     email: string;

@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Image, TouchableOpacity, Text, ActivityIndicator } from "react-native";
-import { PortfolioItem } from "@/src/hooks/usePortfolio";
+import { PortfolioItem } from "@/hooks/usePortfolio";
 import { styles } from "./styles";
 
 interface Props {

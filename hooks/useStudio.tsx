@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { createStudio, getStudio, updateStudio } from '@/src/services/api/studio';
+import { createStudio, getStudio, updateStudio } from '@/services/api/studio';
 import * as Location from 'expo-location';
 import { router } from 'expo-router';
 

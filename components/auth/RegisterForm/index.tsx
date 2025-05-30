@@ -3,8 +3,8 @@ import { View, Text, TextInput, TouchableOpacity, ActivityIndicator } from "reac
 import { TextInputMask } from "react-native-masked-text";
 import { Ionicons } from '@expo/vector-icons';
 
-import GenericButton from "@/src/components/buttons/GenericButton";
-import Colors from "@/src/constants/Colors";
+import GenericButton from "@/components/buttons/GenericButton";
+import Colors from "@/constants/Colors";
 import { styles } from "./styles"
 
 interface RegisterFormProps {

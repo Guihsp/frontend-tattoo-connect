@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, ActivityIndicator, TouchableOpacity, TextInput, Alert } from "react-native";
-import { useTattooParameters } from "@/src/hooks/useTattooMatching";
-import { useTattooMatchingForm } from "@/src/hooks/useTattooMatchingForm";
+import { useTattooParameters } from "@/hooks/useTattooMatching";
+import { useTattooMatchingForm } from "@/hooks/useTattooMatchingForm";
 import { styles } from "./styles";
-import GenericButton from "@/src/components/buttons/GenericButton";
+import GenericButton from "@/components/buttons/GenericButton";
 import { useRouter } from "expo-router";
 
 const CATEGORIES = [

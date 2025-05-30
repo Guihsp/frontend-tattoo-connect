@@ -1,6 +1,6 @@
 import { View, TextInput, Text } from "react-native";
 
-import GenericButton from "@/src/components/buttons/GenericButton";
+import GenericButton from "@/components/buttons/GenericButton";
 import { styles } from "./styles";
 
 interface Props {

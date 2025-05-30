@@ -1,9 +1,9 @@
 import { Text } from "react-native";
 
-import Container from "@/src/components/global/Container";
-import BackButton from "@/src/components/buttons/BackButton";
+import Container from "@/components/global/Container";
+import BackButton from "@/components/buttons/BackButton";
 import { styles } from "./styles";
-import ParametersForm from "@/src/components/client/ParametersForm";
+import ParametersForm from "@/components/client/ParametersForm";
 
 export default function ParametersFormScreen() {
     return (

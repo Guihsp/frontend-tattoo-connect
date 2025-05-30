@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllParameters } from "@/src/services/api/parameters";
+import { getAllParameters } from "@/services/api/parameters";
 
 export interface TattooParameter {
   id: string;

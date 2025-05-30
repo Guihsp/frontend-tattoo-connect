@@ -1,9 +1,9 @@
 import { Image, Text, View } from "react-native";
 
-import Container from "@/src/components/global/Container";
-import { RegisterForm } from "@/src/components/auth/RegisterForm";
-import BackButton from "@/src/components/buttons/BackButton";
-import { useSignUp } from "@/src/hooks/useSignUp";
+import Container from "@/components/global/Container";
+import { RegisterForm } from "@/components/auth/RegisterForm";
+import BackButton from "@/components/buttons/BackButton";
+import { useSignUp } from "@/hooks/useSignUp";
 import { styles } from "./styles";
 
 export default function SignUpScreen() {

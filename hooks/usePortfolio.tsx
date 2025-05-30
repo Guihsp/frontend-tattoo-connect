@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { getPortfolio, submitImageForPortfolio, deletePortfolioImage } from "@/src/services/api/portfolio";
-import { useAuth } from "@/src/contexts/AuthContext";
+import { getPortfolio, submitImageForPortfolio, deletePortfolioImage } from "@/services/api/portfolio";
+import { useAuth } from "@/contexts/AuthContext";
 
 export interface PortfolioItem {
     id: string;

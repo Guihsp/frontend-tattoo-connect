@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getAllParameters, createTattooArtistParameter, getAllTattooArtistParameters } from "@/src/services/api/parameters";
-import { useAuth } from "@/src/contexts/AuthContext";
+import { getAllParameters, createTattooArtistParameter, getAllTattooArtistParameters } from "@/services/api/parameters";
+import { useAuth } from "@/contexts/AuthContext";
 
 export interface Parameter {
   id: string;

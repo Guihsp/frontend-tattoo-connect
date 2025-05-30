@@ -1,9 +1,9 @@
 import { View, Text, TextInput, ActivityIndicator, TouchableOpacity } from "react-native";
 import { Picker } from "@react-native-picker/picker";
-import GenericButton from "@/src/components/buttons/GenericButton";
-import { ParameterWithPrice, Parameter } from "@/src/hooks/useTattooParameters";
+import GenericButton from "@/components/buttons/GenericButton";
+import { ParameterWithPrice, Parameter } from "@/hooks/useTattooParameters";
 import { styles } from "./styles";
-import Colors from "@/src/constants/Colors";
+import Colors from "@/constants/Colors";
 
 interface Props {
   grouped: Record<string, Parameter[]>;

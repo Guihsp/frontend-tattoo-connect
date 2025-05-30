@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import { useRouter } from "expo-router";
-import { useAuth } from "@/src/contexts/AuthContext";
-import icons from "@/src/assets/images";
+import { useAuth } from "@/contexts/AuthContext";
+import icons from "@/assets/images";
 import { styles } from "./styles";
 
 export default function AppHeader() {

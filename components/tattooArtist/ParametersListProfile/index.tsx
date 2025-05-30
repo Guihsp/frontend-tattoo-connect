@@ -12,7 +12,7 @@ interface Props {
   parameters: Parameter[];
 }
 
-export default function ParametersListProfile({ title = "Parâmetros", parameters }: Props) {
+export default function ParametersListProfile({ title, parameters }: Props) {
   if (!parameters || parameters.length === 0) {
     return (
       <Text style={{ marginVertical: 8, color: "#888" }}>

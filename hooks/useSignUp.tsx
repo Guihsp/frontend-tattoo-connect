@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { useAuth } from '@/src/contexts/AuthContext';
-import { isValidCPF } from '@/src/utils/cpfValidator';
+import { useAuth } from '@/contexts/AuthContext';
+import { isValidCPF } from '@/utils/cpfValidator';
 
 export const useSignUp = () => {
     const { signUp, user } = useAuth();

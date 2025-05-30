@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { View, Text, TouchableOpacity, Modal, TextInput, ActivityIndicator, Alert } from "react-native";
 import { styles } from "./styles";
-import { updateTattooArtistParameter, deleteTattooArtistParameter } from "@/src/services/api/parameters";
+import { updateTattooArtistParameter, deleteTattooArtistParameter } from "@/services/api/parameters";
 
 interface ParameterItem {
     id: string;

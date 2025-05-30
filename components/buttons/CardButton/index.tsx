@@ -1,7 +1,7 @@
 import { TouchableOpacity, Text, Image, StyleProp, ViewStyle } from 'react-native';
 import { useRouter } from 'expo-router';
 
-import icons from '@/src/assets/images/index';
+import icons from '@/assets/images/index';
 import { styles } from './styles';
 
 interface CardButtonProps {

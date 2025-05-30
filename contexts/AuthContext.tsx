@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { createContext, useContext, useState, ReactNode } from 'react';
-import { loginRequest, registerRequest } from '@/src/services/api/auth';
-import { saveToken, removeToken, getToken } from '@/src/utils/storage';
+import { loginRequest, registerRequest } from '@/services/api/auth';
+import { saveToken, removeToken, getToken } from '@/utils/storage';
 import { useRouter } from 'expo-router';
-import { getUser } from '@/src/services/api/user';
-import { User, UserRole } from '@/src/types/User';
+import { getUser } from '@/services/api/user';
+import { User, UserRole } from '@/types/User';
 import * as Location from 'expo-location';
-import { updateTattooArtist } from '@/src/services/api/tattoArtist';
-import { createStudio } from '@/src/services/api/studio';
+import { updateTattooArtist } from '@/services/api/tattoArtist';
+import { createStudio } from '@/services/api/studio';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 

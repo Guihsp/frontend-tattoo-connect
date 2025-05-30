@@ -1,5 +1,5 @@
 import { Stack, Tabs } from 'expo-router';
-import { useAuth } from '@/src/contexts/AuthContext';
+import { useAuth } from '@/contexts/AuthContext';
 import { Redirect } from 'expo-router';
 
 export default function TattooArtistLayout() {

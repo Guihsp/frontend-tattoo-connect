@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { updateTattooArtist, getTattooArtistProfile } from "@/src/services/api/tattoArtist";
+import { updateTattooArtist, getTattooArtistProfile } from "@/services/api/tattoArtist";
 import { router } from "expo-router";
-import { useAuth } from "@/src/contexts/AuthContext"; 
+import { useAuth } from "@/contexts/AuthContext"; 
 export const useBioRegister = () => {
     const [bio, setBio] = useState('');
     const [error, setError] = useState('');

@@ -1,8 +1,8 @@
 import { View, Text } from 'react-native';
 
-import Container from '@/src/components/global/Container';
-import BackButton from '@/src/components/buttons/BackButton';
-import ProfileDetails from '@/src/components/tattooArtist/ProfileDetails';
+import Container from '@/components/global/Container';
+import BackButton from '@/components/buttons/BackButton';
+import ProfileDetails from '@/components/tattooArtist/ProfileDetails';
 import styles from "./styles";
 
 export default function ProfileScreen() {

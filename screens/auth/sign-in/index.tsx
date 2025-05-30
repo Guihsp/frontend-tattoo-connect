@@ -1,8 +1,8 @@
 import { Text } from 'react-native';
 
-import { LoginForm } from '@/src/components/auth/LoginForm';
-import Container from '@/src/components/global/Container';
-import { useSignIn } from '@/src/hooks/useSignIn';
+import { LoginForm } from '@/components/auth/LoginForm';
+import Container from '@/components/global/Container';
+import { useSignIn } from '@/hooks/useSignIn';
 import { styles } from './styles'
 
 const SignInScreen = () => {

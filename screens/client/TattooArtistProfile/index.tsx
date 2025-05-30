@@ -1,9 +1,9 @@
 import { useLocalSearchParams } from "expo-router";
 import { View, Text } from "react-native";
 
-import BackButton from "@/src/components/buttons/BackButton";
-import Container from "@/src/components/global/Container";
-import ProfileDetails from "@/src/components/tattooArtist/ProfileDetails";
+import BackButton from "@/components/buttons/BackButton";
+import Container from "@/components/global/Container";
+import ProfileDetails from "@/components/tattooArtist/ProfileDetails";
 import { styles } from "../home/styles";
 
 export default function TattooArtistProfileScreen() {

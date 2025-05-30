@@ -5,20 +5,20 @@ import * as Linking from "expo-linking";
 import {  useCallback } from "react";
 import { useFocusEffect } from "@react-navigation/native";
 
-import ReviewsSection from "@/src/components/tattooArtist/ReviewsSection";
-import PortfolioSection from "@/src/components/tattooArtist/PortfolioSection";
-import ParametersListProfile from "@/src/components/tattooArtist/ParametersListProfile";
-import { usePortfolio } from "@/src/hooks/usePortfolio";
-import { useProfile } from "@/src/hooks/useProfile";
+import ReviewsSection from "@/components/tattooArtist/ReviewsSection";
+import PortfolioSection from "@/components/tattooArtist/PortfolioSection";
+import ParametersListProfile from "@/components/tattooArtist/ParametersListProfile";
+import { usePortfolio } from "@/hooks/usePortfolio";
+import { useProfile } from "@/hooks/useProfile";
 import { styles } from "./styles";
-import icons from "@/src/assets/images";
-import { useAuth } from "@/src/contexts/AuthContext";
-import { uploadTattooArtistPhoto } from "@/src/services/api/tattoArtist";
-import { getTattooArtistContact } from "@/src/services/api/tattoArtist";
+import icons from "@/assets/images";
+import { useAuth } from "@/contexts/AuthContext";
+import { uploadTattooArtistPhoto } from "@/services/api/tattoArtist";
+import { getTattooArtistContact } from "@/services/api/tattoArtist";
 import { router } from "expo-router";
-import GenericButton from "@/src/components/buttons/GenericButton";
+import GenericButton from "@/components/buttons/GenericButton";
 import { Modal, TextInput } from "react-native";
-import { createReview } from "@/src/services/api/reviews";
+import { createReview } from "@/services/api/reviews";
 
 
 interface Props {

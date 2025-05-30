@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
-import { useAuth } from '@/src/contexts/AuthContext';
-import Container from '@/src/components/global/Container';
-import CardButton from '@/src/components/buttons/CardButton'
-import Header from '@/src/components/global/Header';
+import { useAuth } from '@/contexts/AuthContext';
+import Container from '@/components/global/Container';
+import CardButton from '@/components/buttons/CardButton'
+import Header from '@/components/global/Header';
 import { styles } from './styles';
-import Colors from '@/src/constants/Colors';
+import Colors from '@/constants/Colors';
 
 export default function HomeScreen() {
     const { user } = useAuth();

@@ -1,11 +1,11 @@
 import { Text } from "react-native";
 
-import Container from "@/src/components/global/Container";
-import { usePortfolio } from "@/src/hooks/usePortfolio";
+import Container from "@/components/global/Container";
+import { usePortfolio } from "@/hooks/usePortfolio";
 import { styles } from "./styles";
-import BackButton from "@/src/components/buttons/BackButton";
-import PortfolioSection from "@/src/components/tattooArtist/PortfolioSection";
-import { useAuth } from "@/src/contexts/AuthContext";
+import BackButton from "@/components/buttons/BackButton";
+import PortfolioSection from "@/components/tattooArtist/PortfolioSection";
+import { useAuth } from "@/contexts/AuthContext";
 
 
 

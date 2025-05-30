@@ -1,9 +1,9 @@
 import { View, Text } from "react-native";
 import PortfolioList from "../PortfolioList";
-import GenericButton from "@/src/components/buttons/GenericButton";
+import GenericButton from "@/components/buttons/GenericButton";
 import PortfolioModal from "../PortfolioModal";
 import UploadModal from "../UploadModal";
-import { PortfolioItem } from "@/src/hooks/usePortfolio";
+import { PortfolioItem } from "@/hooks/usePortfolio";
 
 interface Props {
     portfolio: PortfolioItem[];

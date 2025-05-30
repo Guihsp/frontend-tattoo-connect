@@ -2,13 +2,13 @@ import { useCallback, useState } from "react";
 import { Text } from "react-native";
 import { router } from "expo-router";
 import { useFocusEffect } from "@react-navigation/native";
-import BackButton from "@/src/components/buttons/BackButton";
-import Container from "@/src/components/global/Container";
+import BackButton from "@/components/buttons/BackButton";
+import Container from "@/components/global/Container";
 import { styles } from "./styles";
-import GenericButton from "@/src/components/buttons/GenericButton";
-import ParametersList from "@/src/components/tattooArtist/ParametersList";
-import { getAllTattooArtistParameters } from "@/src/services/api/parameters";
-import { useAuth } from "@/src/contexts/AuthContext";
+import GenericButton from "@/components/buttons/GenericButton";
+import ParametersList from "@/components/tattooArtist/ParametersList";
+import { getAllTattooArtistParameters } from "@/services/api/parameters";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function TattooParametersManagementScreen() {
     const { user } = useAuth();

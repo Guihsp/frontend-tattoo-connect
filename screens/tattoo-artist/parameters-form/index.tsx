@@ -1,10 +1,10 @@
-import BackButton from "@/src/components/buttons/BackButton";
-import Container from "@/src/components/global/Container";
-import ParametersForm from "@/src/components/tattooArtist/ParametersForm";
-import { useTattooParameters } from "@/src/hooks/useTattooParameters";
+import BackButton from "@/components/buttons/BackButton";
+import Container from "@/components/global/Container";
+import ParametersForm from "@/components/tattooArtist/ParametersForm";
+import { useTattooParameters } from "@/hooks/useTattooParameters";
 import { useState } from "react";
 import { router } from "expo-router"; 
-import { Parameter } from "@/src/hooks/useTattooParameters";
+import { Parameter } from "@/hooks/useTattooParameters";
 
 
 export default function ParametersFormScreen() {

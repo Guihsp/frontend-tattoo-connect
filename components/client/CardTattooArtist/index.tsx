@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 
-import icons from "@/src/assets/images";
+import icons from "@/assets/images";
 import { styles } from "./styles";
 
 interface Props {

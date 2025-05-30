@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getToken } from '@/src/utils/storage';
+import { getToken } from '@/utils/storage';
 
 export const api = axios.create({
     baseURL: "https://tattooconnect.duckdns.org/",

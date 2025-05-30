@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as Location from "expo-location";
 import { Alert } from "react-native";
-import { getTattooMatching } from "@/src/services/api/tattooMatching";
+import { getTattooMatching } from "@/services/api/tattooMatching";
 
 type Order = "asc" | "desc";
 

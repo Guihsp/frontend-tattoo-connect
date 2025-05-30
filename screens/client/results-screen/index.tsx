@@ -1,8 +1,8 @@
 import { useRouter, useLocalSearchParams } from "expo-router";
-import Container from "@/src/components/global/Container";
-import BackButton from "@/src/components/buttons/BackButton";
+import Container from "@/components/global/Container";
+import BackButton from "@/components/buttons/BackButton";
 import { View, FlatList, Text } from "react-native";
-import CardTattooArtist from "@/src/components/client/CardTattooArtist";
+import CardTattooArtist from "@/components/client/CardTattooArtist";
 import { styles } from "./styles";
 
 export default function ResultsScreen() {

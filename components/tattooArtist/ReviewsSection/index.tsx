@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { View, Text, ActivityIndicator, FlatList } from "react-native";
-import { getReviewsByArtist } from "@/src/services/api/reviews";
+import { getReviewsByArtist } from "@/services/api/reviews";
 import { styles } from "./styles";
 
 interface Props {

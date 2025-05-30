@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useAuth } from '@/src/contexts/AuthContext';
+import { useAuth } from '@/contexts/AuthContext';
 
 export const useSignIn = () => {
     const { signIn } = useAuth();

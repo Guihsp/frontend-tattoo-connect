@@ -1,9 +1,9 @@
 import { Text } from "react-native";
-import Container from "@/src/components/global/Container";
-import StudioForm from "@/src/components/tattooArtist/StudioForm";
-import BackButton from "@/src/components/buttons/BackButton";
-import { useStudio } from "@/src/hooks/useStudio";
-import { useAuth } from '@/src/contexts/AuthContext';
+import Container from "@/components/global/Container";
+import StudioForm from "@/components/tattooArtist/StudioForm";
+import BackButton from "@/components/buttons/BackButton";
+import { useStudio } from "@/hooks/useStudio";
+import { useAuth } from '@/contexts/AuthContext';
 import { styles } from "./styles";
 
 export default function StudioFormScreen() {

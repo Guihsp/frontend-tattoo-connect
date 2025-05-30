@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getTattooArtistProfile } from "@/src/services/api/tattoArtist";
-import { useAuth } from "@/src/contexts/AuthContext";
+import { getTattooArtistProfile } from "@/services/api/tattoArtist";
+import { useAuth } from "@/contexts/AuthContext";
 
 export function useProfile(tattooArtistId?: string, refreshKey?: any) {
     const { user } = useAuth();

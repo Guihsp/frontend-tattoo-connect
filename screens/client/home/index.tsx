@@ -1,12 +1,12 @@
 import { Text, Image } from 'react-native';
 
-import { useAuth } from "@/src/contexts/AuthContext"
-import Container from "@/src/components/global/Container"
-import  Header  from "@/src/components/global/Header"
-import icons from "@/src/assets/images"
+import { useAuth } from "@/contexts/AuthContext"
+import Container from "@/components/global/Container"
+import  Header  from "@/components/global/Header"
+import icons from "@/assets/images"
 
 import { styles } from "./styles"
-import CardButton from '@/src/components/buttons/CardButton';
+import CardButton from '@/components/buttons/CardButton';
 
 export default function HomeScreen() {
     const { user } = useAuth();
