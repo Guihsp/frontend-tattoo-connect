@@ -17,7 +17,11 @@ export const styles = StyleSheet.create({
         fontSize: 20,
         fontFamily: "Montserrat-SemiBold",
         color: Colors.primaryText,
-
+    },
+    icon: {
+        width: 50,
+        height: 50,
+        resizeMode: "contain",
     },
 
     

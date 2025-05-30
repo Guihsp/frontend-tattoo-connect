@@ -12,10 +12,11 @@ export default function AppHeader() {
 
   return (
     <View style={styles.headerContainer}>
-      <TouchableOpacity onPress={handleSignOut}>
-        <Text style={styles.text}>
-          Sair
-        </Text>
+      <TouchableOpacity onPress={() => router.push("/(tattoo-artist)")}>
+        <Image
+          source={icons.logoVertical}
+          style={styles.logo}
+        />
       </TouchableOpacity>
 
       {user.role === "TATTOO_ARTIST" ? (
@@ -26,8 +27,8 @@ export default function AppHeader() {
           />
         </TouchableOpacity>
       ) : (
-        <Text style={styles.text}>
-          Bem-vindo, {user.name}!
+        <Text style={styles.text} onPress={handleSignOut}>
+        Sair
         </Text>
       )}
     </View>

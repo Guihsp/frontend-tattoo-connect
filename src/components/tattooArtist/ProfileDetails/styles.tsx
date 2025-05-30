@@ -62,4 +62,9 @@ export const styles = StyleSheet.create({
         color: "#888",
         marginVertical: 16,
     },
+    subtitle: {
+        fontSize: 14,
+        fontFamily: "Montserrat-Regular",
+        color: Colors.primaryText,
+    }
 });

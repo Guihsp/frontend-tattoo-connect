@@ -18,6 +18,7 @@ export default function CardButton({ icon, title, route, style }: CardButtonProp
         <TouchableOpacity onPress={() => router.push(route)} style={[styles.card, style]}>
             <Image
                 source={icons[icon]}
+                style={styles.icon}
             />
             <Text style={styles.title}>
                 {title}

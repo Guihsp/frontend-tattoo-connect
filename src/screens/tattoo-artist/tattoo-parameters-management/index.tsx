@@ -24,7 +24,7 @@ export default function TattooParametersManagementScreen() {
 
     return (
         <Container scrollable justifyContent="flex-start">
-            <BackButton style={{ marginVertical: 16 }} />
+            <BackButton style={{ marginTop: 40, marginBottom: 20 }} />
 
             <Text style={styles.title}>
                 Gerencie os parâmetros de tatuagem

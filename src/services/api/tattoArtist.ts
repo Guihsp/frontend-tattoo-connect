@@ -20,3 +20,17 @@ export const getTattooArtistContact = async (id: string) => {
     const response = await api.get(`/tattoo-artists/${id}/contact`);
     return response.data;
 }
+
+export const uploadTattooArtistPhoto = async (formData: FormData) => {
+    try {
+        const response = await api.post('/tattoo-artists/upload-profile-image', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+        return response.data;
+    } catch (error) {
+        console.error('Error uploading tattoo artist photo:', error);
+        throw error;
+    }
+}

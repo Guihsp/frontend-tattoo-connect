@@ -12,6 +12,7 @@ const icons = {
     phone: require('./phone.png'),
     search: require('./search.png'),
     star: require('./star.png'),
+    image: require('./image.png'),
 }
 
 export default icons;

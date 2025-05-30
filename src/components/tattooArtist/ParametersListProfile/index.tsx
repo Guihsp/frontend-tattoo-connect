@@ -28,20 +28,13 @@ export default function ParametersListProfile({ title = "Parâmetros", parameter
           {title}
         </Text>
       )}
-      <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+      <View style={styles.parametersList}>
         {parameters.map(param => (
           <View
             key={param.id}
-            style={{
-              backgroundColor: "#EEE",
-              borderRadius: 16,
-              paddingHorizontal: 12,
-              paddingVertical: 4,
-              marginRight: 8,
-              marginBottom: 8,
-            }}
+            style={styles.parameterItem}
           >
-            <Text style={{ color: "#333" }}>{param.name}</Text>
+            <Text style={styles.parameterText}>{param.name}</Text>
           </View>
         ))}
       </View>

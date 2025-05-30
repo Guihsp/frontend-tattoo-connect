@@ -6,8 +6,14 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: 10,
         backgroundColor: Colors.primary,
+        paddingVertical: 10,
+        paddingTop: 40,
+        paddingHorizontal: 20,
+        borderBottomColor: Colors.secondary,
+        borderBottomWidth: 1,
+        width: '100%',
+
     },
     text: {
         color: Colors.primaryText,
@@ -18,5 +24,9 @@ export const styles = StyleSheet.create({
         width: 40,
         height: 40,
         borderRadius: 20,
+    },
+    logo: {
+        width: 110,
+        height: 40,
     },
 });

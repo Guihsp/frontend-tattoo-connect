@@ -2,7 +2,7 @@ import axios from 'axios';
 import { getToken } from '@/src/utils/storage';
 
 export const api = axios.create({
-    baseURL: "https://f64f-2804-7f0-2f-66e-e0ca-2323-d827-6177.ngrok-free.app/",
+    baseURL: "https://tattooconnect.duckdns.org/",
     headers: {
         'Content-Type': 'application/json',
     },
