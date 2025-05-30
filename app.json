@@ -1,32 +1,33 @@
 {
   "expo": {
-    "name": "frontend-tatto-connect",
-    "slug": "frontend-tatto-connect",
+    "name": "TatuNow",
+    "slug": "TatuNow",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "",
-    "scheme": "frontendtattoconnect",
+    "icon": "./src/assets/images/logo-2.png",
+    "scheme": "",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
       "image": "./src/assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1C1C1C"
     },
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./src/assets/images/logo-2.png",
+        "backgroundColor": "#1c1c1c"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.guihsp.TatuNow"
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": ""
+      "favicon": ".src/assets/images/logo.png"
     },
     "plugins": [
       "expo-router",
@@ -34,6 +35,12 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "d7a35316-0243-425f-84f8-49fda56e85eb"
+      }
     }
   }
 }

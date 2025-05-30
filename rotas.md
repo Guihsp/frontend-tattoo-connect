@@ -1,6 +1,8 @@
-Auth
+API Tattoo App - Documentação Atualizada das Rotas
+Autenticação
+Registrar Usuário
 POST /auth/register
-Request:
+Request Body:
 
 json
 {
@@ -8,25 +10,37 @@ json
     "email": "joao@email.com",
     "password": "senha123",
     "phone": "+55 11 91234-5678",
-    "type": "TATTOO_ARTIST"  // ou "CLIENT"
+    "type": "TATTOO_ARTIST" // ou "CLIENT"
 }
-Response (200):
-Token JWT retornado no header Authorization.
+Responses:
 
+201: Usuário registrado com sucesso (retorna JWT)
+
+400: Dados inválidos
+
+409: E-mail já em uso
+
+Login
 POST /auth/login
-Request:
+Request Body:
 
 json
 {
     "email": "joao@email.com",
     "password": "senha123"
 }
-Response (200):
-Token JWT retornado no header Authorization.
+Responses:
+
+200: Login realizado com sucesso (retorna JWT)
+
+401: Credenciais inválidas
 
 Usuários
+Obter Perfil
 GET /users/me
-Response (200):
+Responses:
+
+200:
 
 json
 {
@@ -37,34 +51,34 @@ json
     "type": "CLIENT",
     "createdAt": "2025-05-10T17:30:00.000Z"
 }
+Atualizar Perfil
 PUT /users/me
-Request:
+Request Body:
 
 json
 {
     "name": "João Atualizado",
     "phone": "+55 11 91234-5678"
 }
-Response (200):
-Mesmo formato do GET /users/me.
-
+Excluir Conta
 DELETE /users/me
-Response (200):
-Sem corpo.
 
 Estúdios
+Criar Estúdio
 POST /studios
-Request:
+Request Body:
 
 json
 {
     "name": "Estúdio Tattoo Black",
     "address": "Rua das Tatuagens, 123 - Bairro Centro, São Paulo/SP",
-    "latitude": -23.55952,
+    "latitude": -23.55052,
     "longitude": -46.633308,
     "phone": "+55 11 99876-5432"
 }
-Response (201):
+Responses:
+
+201:
 
 json
 {
@@ -75,8 +89,9 @@ json
     "longitude": -46.63,
     "phone": "+55 11 90000-0000"
 }
+Atualizar Estúdio
 PUT /studios/{id}
-Request:
+Request Body:
 
 json
 {
@@ -86,17 +101,11 @@ json
     "longitude": -43.172896,
     "phone": "+55 21 99876-0000"
 }
-Response (200):
-
-json
-{
-    "id": "uuid",
-    "name": "Novo Estúdio Tattoo Pro",
-    "address": "Avenida Principal, 456",
-    "phone": "+55 11 98888-8888"
-}
+Buscar Estúdio por Tatuador
 GET /studios/tattoo-artists/{id}/studio
-Response (200):
+Responses:
+
+200:
 
 json
 {
@@ -108,26 +117,29 @@ json
     "phone": "+55 11 90000-0000"
 }
 Tatuadores
+Atualizar Perfil
 PUT /tattoo-artists/profile
-Request:
+Request Body:
 
 json
 {
-    "bio": "Especializado em realismo e blackwork",
-    "freeUntil": "2025-05-17",
-    "isActive": true
+    "bio": "Especializado em realismo e blackwork"
 }
-Response (200):
+Listar Tatuadores
+GET /tattoo-artists
+Query Params:
 
-json
-{
-    "userId": "uuid",
-    "bio": "Trabalho com pontilhismo e blackwork",
-    "freeUntil": "2025-05-30",
-    "isActive": true
-}
-GET /tattoo-artists (com filtros opcionais: style, latitude, longitude, orderBy, page, limit)
-Response (200):
+style: Estilo de tatuagem (ex: fineline)
+
+latitude, longitude: Para ordenação por distância
+
+orderBy: rating/price/distance
+
+page, limit: Paginação
+
+Responses:
+
+200:
 
 json
 {
@@ -141,8 +153,11 @@ json
         "longitude": -46.63
     }
 }
+Ver Perfil Detalhado
 GET /tattoo-artists/{id}
-Response (200):
+Responses:
+
+200:
 
 json
 {
@@ -155,74 +170,39 @@ json
         "address": "Rua X, 123",
         "phone": "+55 11 90000-0000"
     },
-    "portfolio": [
-        {
-            "imageUrl": "https://...",
-            "description": "Tatuagem no braço"
-        }
-    ],
-    "reviews": [
-        {
-            "rating": 5,
-            "comment": "Excelente trabalho!"
-        }
-    ]
+    "portfolio": [{
+        "imageUrl": "https://...",
+        "description": "Tatuagem no braço"
+    }],
+    "reviews": [{
+        "rating": 5,
+        "comment": "Excelente trabalho!"
+    }]
 }
-Preços de Tatuagem
-POST /tattoo-artists/pricings
-Request:
+Contato WhatsApp
+GET /tattoo-artists/{id}/contact
+Responses:
+
+200:
 
 json
 {
-    "style": "fineline",
-    "minSizeCm": 5,
-    "maxSizeCm": 20,
-    "priceBase": 100,
-    "pricePerCm2": 10.5
-}
-Response (201):
-
-json
-{
-    "id": "uuid",
-    "style": "fineline",
-    "minSizeCm": 5,
-    "maxSizeCm": 20,
-    "priceBase": 100,
-    "pricePerCm2": 10.5
-}
-PUT /tattoo-artists/pricings/{id}
-Request:
-
-json
-{
-    "style": "realismo",
-    "minSizeCm": 10,
-    "maxSizeCm": 25,
-    "priceBase": 150,
-    "pricePerCm2": 12
-}
-Response (200):
-
-json
-{
-    "id": "uuid",
-    "style": "blackwork",
-    "priceBase": 150
+    "whatsappUrl": "https://wa.me/551199999999?text=Olá! Vim pelo Tattoo Connect."
 }
 Portfólio
-POST /portfolio
-Request (multipart/form-data):
+Enviar Imagem
+POST /portfolio (multipart/form-data)
+Body:
 
-file: Arquivo de imagem
+file: Imagem
 
-description (opcional): Descrição da imagem
+description (opcional)
 
-Response (201):
-Sem corpo (apenas status de sucesso).
-
+Listar Portfólio
 GET /portfolio/tattoo-artists/{id}/portfolio
-Response (200):
+Responses:
+
+200:
 
 json
 {
@@ -230,15 +210,66 @@ json
     "imageUrl": "https://s3.../imagem.jpg",
     "description": "Tatuagem no braço"
 }
-Schemas (DTOs)
-Os modelos completos estão nas páginas 14-16 do PDF (ex: RegisterDto, LoginDto, CreateStudioDto, etc.).
+Avaliações
+Enviar Avaliação
+POST /reviews
+Request Body:
 
-Observações:
+json
+{
+    "tattooArtistId": "c5d7d1dc-ff32-4f78-930a-2e4a801c8c4a",
+    "rating": 5,
+    "comment": "Trabalho excelente, voltarei com certeza!"
+}
+Listar Avaliações
+GET /reviews/tattoo-artists/{id}/reviews
+Responses:
 
-Autenticação: Todas as rotas (exceto /auth/* e /tattoo-artists/{id}) requerem token JWT no header Authorization.
+200:
 
-Erros comuns:
+json
+{
+    "rating": 5,
+    "comment": "Excelente!",
+    "createdAt": "2025-05-10T19:50:00Z"
+}
+Tattoo Matching
+Buscar Tatuadores Compatíveis
+GET /tattoos/match
+Query Params:
 
-401 (Token inválido/ausente)
+parameterIds: IDs dos parâmetros
 
-404 (Recurso não encontrado).
+latitude, longitude, maxDistanceKm
+
+priceOrder, ratingOrder, distanceOrder: asc/desc
+
+Parâmetros
+Listar Parâmetros
+GET /parameters
+Responses:
+
+200:
+
+json
+{
+    "id": "47646674-2ee2-4e77-85e7-bad68f5f1835",
+    "category": "LARGURA_CM",
+    "name": "Até 5 cm"
+}
+Gerenciar Parâmetros de Tatuador
+POST /tattoo-artist-parameters/{userId}
+
+GET /tattoo-artist-parameters/{userId}
+
+PATCH /tattoo-artist-parameters/{id}
+
+DELETE /tattoo-artist-parameters/{id}
+
+Request Body (POST/PATCH):
+
+json
+{
+    "parameterId": "string",
+    "price": 0
+}

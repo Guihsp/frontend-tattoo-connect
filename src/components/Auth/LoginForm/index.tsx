@@ -68,7 +68,7 @@ export const LoginForm = ({
             {error ? (
                 <Text style={{ color: Colors.error, textAlign: 'center', marginBottom: 10 }}>{error}</Text>
             ) : null}
-            <GenericButton title={loading ? "Entrando..." : "Entrar"} onPress={onSubmit} filled disabled={loading} />
+            <GenericButton title={loading ? "Entrando..." : "Entrar"} onPress={onSubmit} filled  />
             {loading && (
                 <ActivityIndicator color={Colors.primaryText} style={{ marginVertical: 10 }} />
             )}
@@ -78,8 +78,8 @@ export const LoginForm = ({
                 <View style={styles.line} />
             </View>
             <GenericButton title="Criar conta" onPress={() => {
-                router.push('/(auth)/signUp');
-            }} disabled={loading} />
+                router.push('/(auth)/sign-up');
+            }}/>
         </View>
     );
 };

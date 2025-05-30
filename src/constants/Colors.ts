@@ -5,6 +5,7 @@ const Colors = {
     secondary: '#2E2E2E',
     tertiary: '#F2F2F2',
     quaternary: '#8E44AD',
+    quinary: '#555555',
     error: '#E74C3C',
     success: '#27AE60',
     accent: '#F1C40F',
