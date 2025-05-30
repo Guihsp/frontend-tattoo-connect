@@ -4,14 +4,13 @@
     "slug": "TatuNow",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/images/logo-2.png",
-    "scheme": "",
+    "icon": "./src/assets/images/logo.png",
+    "scheme": "tatunow",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
-      "image": "./src/assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#1C1C1C"
+      "image": "./src/assets/images/logo.png",
+      "resizeMode": "contain"
     },
     "ios": {
       "supportsTablet": true
