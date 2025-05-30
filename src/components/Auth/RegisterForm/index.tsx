@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, ActivityIndicator } from "react-native";
+import { TextInputMask } from "react-native-masked-text";
 import { Ionicons } from '@expo/vector-icons';
 
 import GenericButton from "@/src/components/buttons/GenericButton";
@@ -124,10 +125,11 @@ export const RegisterForm = ({
             </View>
             <View>
                 <Text style={styles.label}>CPF:</Text>
-                <TextInput
+                <TextInputMask
+                    type={'cpf'}
                     value={cpf}
                     onChangeText={onChangeCpf}
-                    placeholder="Digite seu CPF..."
+                    placeholder="000.000.000-00"
                     style={styles.input}
                     editable={!loading}
                     keyboardType="numeric"
@@ -173,10 +175,16 @@ export const RegisterForm = ({
             </View>
             <View>
                 <Text style={styles.label}>Telefone:</Text>
-                <TextInput
+                <TextInputMask
+                    type={'cel-phone'}
+                    options={{
+                        maskType: 'BRL',
+                        withDDD: true,
+                        dddMask: '(99) '
+                    }}
                     value={phone}
                     onChangeText={onChangePhone}
-                    placeholder="Digite seu telefone..."
+                    placeholder="(xx) xxxxx-xxxx"
                     style={styles.input}
                     editable={!loading}
                     keyboardType="phone-pad"
@@ -225,7 +233,13 @@ export const RegisterForm = ({
 
                     <View>
                         <Text style={styles.label}>Telefone do estúdio:</Text>
-                        <TextInput
+                        <TextInputMask
+                            type={'cel-phone'}
+                            options={{
+                                maskType: 'BRL',
+                                withDDD: true,
+                                dddMask: '(99) '
+                            }}
                             value={studioPhone}
                             onChangeText={onChangeStudioPhone}
                             placeholder="Digite o telefone do seu estúdio..."

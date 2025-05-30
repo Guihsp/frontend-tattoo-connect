@@ -20,12 +20,17 @@ export default function AppHeader() {
       </TouchableOpacity>
 
       {user.role === "TATTOO_ARTIST" ? (
-        <TouchableOpacity onPress={() => router.push("/(tattoo-artist)/profile")}>
-          <Image
-            source={icons.avatarIcon}
-            style={styles.avatar}
-          />
-        </TouchableOpacity>
+        <View style={styles.userInfo}>
+          <Text style={styles.text} onPress={handleSignOut}>
+            Sair
+          </Text>
+          <TouchableOpacity onPress={() => router.push("/(tattoo-artist)/profile")}>
+            <Image
+              source={icons.avatarIcon}
+              style={styles.avatar}
+            />
+          </TouchableOpacity>
+        </View>
       ) : (
         <Text style={styles.text} onPress={handleSignOut}>
         Sair

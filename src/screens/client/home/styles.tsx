@@ -17,4 +17,10 @@ export const styles = StyleSheet.create({
         height: 150,
         marginBottom: 20,
     },
+    header: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+    },
+
 });

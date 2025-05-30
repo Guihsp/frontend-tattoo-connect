@@ -6,10 +6,19 @@ import { styles } from './styles';
 
 interface Props {
     style?: StyleProp<ViewStyle>;
+    route?: string; 
 }
-export default function BackButton({ style }: Props) {
+export default function BackButton({ style, route }: Props) {
     return (   
-        <TouchableOpacity onPress={() => router.back()} style={[styles.btn, style]}>
+        <TouchableOpacity 
+        onPress={() => {
+            if (route) {
+                router.push(route);
+            } else {
+                router.back();
+            }
+        }}
+        style={[styles.btn, style]}>
             <Image source={icons.arrowBack} />
             <Text style={styles.text}>Voltar</Text>
         </TouchableOpacity>

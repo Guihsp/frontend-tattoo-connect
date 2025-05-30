@@ -4,13 +4,12 @@
     "slug": "TatuNow",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "",
+    "icon": "./src/assets/images/logo-2.png",
     "scheme": "",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
       "image": "./src/assets/images/splash.png",
-      "imageWidth": 200,
       "resizeMode": "contain",
       "backgroundColor": "#1C1C1C"
     },
@@ -19,15 +18,16 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/assets/images/splash.png",
+        "foregroundImage": "./src/assets/images/logo-2.png",
         "backgroundColor": "#1c1c1c"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.guihsp.TatuNow"
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": ""
+      "favicon": ".src/assets/images/logo.png"
     },
     "plugins": [
       "expo-router",
@@ -35,6 +35,12 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "d7a35316-0243-425f-84f8-49fda56e85eb"
+      }
     }
   }
 }

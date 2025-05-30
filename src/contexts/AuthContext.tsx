@@ -8,6 +8,8 @@ import { User, UserRole } from '@/src/types/User';
 import * as Location from 'expo-location';
 import { updateTattooArtist } from '@/src/services/api/tattoArtist';
 import { createStudio } from '@/src/services/api/studio';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 interface AuthContextData {
     signIn: (email: string, password: string) => Promise<void>;
@@ -73,10 +75,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
                 token: accessToken,
             };
             setUser(mappedUser);
+            console.log('User data after sign-up:', userData);
 
             if (userData.type === 'CLIENT') {
                 router.replace('/(client)');
             } else if (userData.type === 'TATTOO_ARTIST') {
+                // ...atualiza bio, cria estúdio...
+                await AsyncStorage.setItem('showPremiumModal', 'true');
                 router.replace('/(tattoo-artist)');
             }
         } catch (error) {
@@ -103,10 +108,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             };
             setUser(mappedUser); 
 
+            console.log('User data after sign-up:', userData);
+
             if (userData.type === 'CLIENT') {
                 router.replace('/(client)');
             } else if (userData.type === 'TATTOO_ARTIST') {
                 console.log("aqui")
+                console.log('Bio:', bio);
+                console.log('CPF:', cpf);
                 await updateTattooArtist(bio, cpf);
 
                 const { status } = await Location.requestForegroundPermissionsAsync();
@@ -130,6 +139,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
                     phone: studioPhone,
                 };
                 await createStudio(studioData);
+                await AsyncStorage.setItem('showPremiumModal', 'true');
 
                 router.replace('/(tattoo-artist)');
             }

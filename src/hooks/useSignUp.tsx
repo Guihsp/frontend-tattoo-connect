@@ -1,11 +1,7 @@
-import { router } from 'expo-router';
 import { useState } from 'react';
-import * as Location from 'expo-location';
 
 import { useAuth } from '@/src/contexts/AuthContext';
-import { updateTattooArtist } from '@/src/services/api/tattoArtist';
-import { createStudio } from '@/src/services/api/studio';
-
+import { isValidCPF } from '@/src/utils/cpfValidator';
 
 export const useSignUp = () => {
     const { signUp, user } = useAuth();
@@ -25,14 +21,23 @@ export const useSignUp = () => {
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
 
+    const [showPremiumModal, setShowPremiumModal] = useState(false);
 
     const validate = () => {
-        if (!name || !email || !password || !phone || !type || (type === 'TATTOO_ARTIST' && (!bio || !studioAddress || !studioName || !studioPhone))) {
+        if (!name || !email || !password || !phone || !type || !cpf ||(type === 'TATTOO_ARTIST' && (!bio || !studioAddress || !studioName || !studioPhone))) {
             setError('Preencha todos os campos.');
             return false;
         }
         if (!/\S+@\S+\.\S+/.test(email)) {
             setError('E-mail inválido.');
+            return false;
+        }
+        const cpfLimpo = cpf.replace(/[^\d]/g, '');
+        if (!isValidCPF(cpfLimpo)) {
+            
+            console.log('CPF inválido:', cpf);
+
+            setError('CPF inválido.');
             return false;
         }
         if (password.length < 6) {
@@ -52,6 +57,9 @@ export const useSignUp = () => {
         setLoading(true);
         try {
             await signUp(name, email, password, phone, type, cpf, bio, studioAddress, studioName, studioPhone);
+            if (type === 'TATTOO_ARTIST') {
+                setShowPremiumModal(true);
+            }
         } catch (err: any) {
             setError('Erro ao cadastrar. Tente novamente.');
         } finally {
@@ -74,7 +82,7 @@ export const useSignUp = () => {
         setType,
         cpf,
         setCpf,
-        // Additional fields for tattoo artist
+        
         bio,
         setBio,
         studioAddress,
@@ -86,5 +94,8 @@ export const useSignUp = () => {
         handleRegister,
         error,
         loading,
+
+        showPremiumModal,
+        setShowPremiumModal,
     };
 };

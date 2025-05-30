@@ -5,6 +5,7 @@ import BioForm from "@/src/components/tattooArtist/BioForm";
 import { useBioRegister } from "@/src/hooks/useBio";
 import { styles } from "./styles";
 import BackButton from "@/src/components/buttons/BackButton";
+import { useProfile } from "@/src/hooks/useProfile";
 
 
 export default function BioRegisterScreen() {
@@ -15,6 +16,7 @@ export default function BioRegisterScreen() {
         loading,
         handleBioRegister,
     } = useBioRegister();
+    const { profile, loading: profileLoading } = useProfile();
 
     return (
         <Container>
@@ -23,7 +25,7 @@ export default function BioRegisterScreen() {
                 <View style={styles.avatar} />
                 <View style={styles.bioTextContainer}>
                     <Text style={styles.name}>
-                        {loading ? "Carregando..." : "Seu Nome Aqui"}
+                        {profileLoading ? "Carregando..." : (profile?.name || "Seu nome")}
                     </Text>           
                     <Text style={styles.bioText}>
                         {loading ? "Carregando..." : (bio || "Escreva um pouco sobre você...")}

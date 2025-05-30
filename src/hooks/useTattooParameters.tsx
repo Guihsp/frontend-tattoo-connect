@@ -81,5 +81,5 @@ export const useTattooParameters = () => {
   };
 
   // NOVO: retorna também os parâmetros já cadastrados
-  return { grouped, selected, handleSelect, handlePriceChange, removeSelected, loading, submitParameters, alreadyRegistered };
+  return { grouped, selected, handleSelect, handlePriceChange, removeSelected, loading, submitParameters, alreadyRegistered, parameters };
 };

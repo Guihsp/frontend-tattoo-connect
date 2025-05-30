@@ -9,6 +9,8 @@ interface Props {
   distanceKm: number;
   averagePrice: number | null;
   onPressProfile?: () => void;
+  foto?: string | null;
+  name: string;
 }
 
 export default function CardTattooArtist({
@@ -16,21 +18,31 @@ export default function CardTattooArtist({
   averageRating,
   distanceKm,
   averagePrice,
+  name,
+  foto,
   onPressProfile,
-}: Props) {
+}: Props & {foto?: string}) {
+  console.log("CardTattooArtist foto:", foto);
 
   return (
     <View style={styles.card}>
 
       <View style={styles.infoContainer}>
         <Image
-          source={{ uri: `` }}
+          source={
+            foto
+              ? { uri: foto }
+              : icons.avatarIcon 
+          }
           style={styles.avatar}
           resizeMode="cover"
         />
         <View style={styles.textContainer}>
           <Text style={styles.name}>
-            Nome do Tatuador
+            {name}
+          </Text>
+          <Text style={styles.price}>
+            Preço médio: {averagePrice ? `R$ ${averagePrice.toFixed(2)}` : "Não informado"}
           </Text>
           <Text style={styles.distance}>
             Distância: {distanceKm.toFixed(2)} km

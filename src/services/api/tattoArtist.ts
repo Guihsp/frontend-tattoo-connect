@@ -1,6 +1,6 @@
 import { api } from "./api";
 
-export const updateTattooArtist = async (bio: string, cpf: string) => {
+export const updateTattooArtist = async (bio: string, cpf?: string) => {
     console.log('Updating tattoo artist bio:', bio + ', CPF:', cpf);
    try {
         const response = await api.put('/tattoo-artists/profile', { bio, cpf });

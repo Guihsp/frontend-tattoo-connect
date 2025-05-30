@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { Text } from "react-native";
 import { router } from "expo-router";
+import { useFocusEffect } from "@react-navigation/native";
 import BackButton from "@/src/components/buttons/BackButton";
 import Container from "@/src/components/global/Container";
 import { styles } from "./styles";
@@ -14,13 +15,15 @@ export default function TattooParametersManagementScreen() {
     const [parameters, setParameters] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        if (!user) return;
-        setLoading(true);
-        getAllTattooArtistParameters(user.id)
-            .then(setParameters)
-            .finally(() => setLoading(false));
-    }, [user]);
+    useFocusEffect(
+        useCallback(() => {
+            if (!user) return;
+            setLoading(true);
+            getAllTattooArtistParameters(user.id)
+                .then(setParameters)
+                .finally(() => setLoading(false));
+        }, [user])
+    );
 
     return (
         <Container scrollable justifyContent="flex-start">

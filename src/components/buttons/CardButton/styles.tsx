@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         borderWidth: 2,
         borderColor: Colors.inputBorder,
-        gap: 5,
+        gap: 10,
     },
     title: {
         fontSize: 20,
@@ -19,8 +19,8 @@ export const styles = StyleSheet.create({
         color: Colors.primaryText,
     },
     icon: {
-        width: 50,
-        height: 50,
+        width: 45,
+        height: 45,
         resizeMode: "contain",
     },
 

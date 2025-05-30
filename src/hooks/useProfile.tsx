@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getTattooArtistProfile } from "@/src/services/api/tattoArtist";
 import { useAuth } from "@/src/contexts/AuthContext";
 
-export function useProfile(tattooArtistId?: string) {
+export function useProfile(tattooArtistId?: string, refreshKey?: any) {
     const { user } = useAuth();
     const [profile, setProfile] = useState<any>(null);
     const [loading, setLoading] = useState(false);
@@ -24,8 +24,7 @@ export function useProfile(tattooArtistId?: string) {
             }
         };
         fetchProfile();
-    }, [tattooArtistId, user?.id]);
-
+    }, [tattooArtistId, user?.id, refreshKey]);
 
     return { profile, loading, error };
 }

@@ -7,5 +7,11 @@ export const styles = StyleSheet.create({
         marginVertical: 16,
         fontFamily: "Montserrat-SemiBold",
         color: Colors.primaryText,
-    }
+    },
+    subtitle: {
+        fontSize: 16,
+        marginBottom: 20,
+        fontFamily: "Montserrat-Regular",
+        color: Colors.primaryText,
+    },
 });

@@ -25,7 +25,11 @@ export const styles = StyleSheet.create({
         width: 100,
         height: 100,
         borderRadius: 50,
-        backgroundColor: Colors.quinary,
+    },
+    editIcon: {
+        width: 36,
+        height: 36,
+        tintColor: "#888",
     },
     infoContainer: {
         marginTop: 20,

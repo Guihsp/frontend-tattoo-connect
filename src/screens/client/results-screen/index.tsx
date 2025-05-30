@@ -14,13 +14,19 @@ export default function ResultsScreen() {
   if (!parsedResults || parsedResults.length === 0) {
     return <Text style={{ margin: 20 }}>Nenhum tatuador encontrado.</Text>;
   }
-
+  console.log("ResultsScreen parsedResults:", parsedResults);
   return (
     <Container>
       <BackButton style={{marginTop: 10}}/>
       <Text style={styles.title}>
         Resultados da Busca
       </Text>
+
+      <Text style={styles.subtitle}>
+        Tatuadores disponíveis com
+        base na localidade e parâmetros da tatuagem.
+      </Text>
+
       <FlatList
         data={parsedResults}
         keyExtractor={item => item.tattooArtistId}
@@ -30,6 +36,8 @@ export default function ResultsScreen() {
             averageRating={item.averageRating}
             distanceKm={item.distanceKm}
             averagePrice={item.averagePrice}
+            foto={item.foto || null}
+            name={item.name}
             onPressProfile={() => router.push({
               pathname: "/(client)/TattooArtistProfile",
               params: { id: item.tattooArtistId }

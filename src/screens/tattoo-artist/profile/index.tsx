@@ -9,7 +9,7 @@ export default function ProfileScreen() {
     return (
         <Container justifyContent='flex-start' scrollable>
             <View style={styles.header}>
-                <BackButton />
+                <BackButton route='/(tattoo-artist)' />
                 <Text style={styles.title}>Perfil do tatuador</Text>
             </View>
             <ProfileDetails />

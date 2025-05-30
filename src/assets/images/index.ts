@@ -13,6 +13,8 @@ const icons = {
     search: require('./search.png'),
     star: require('./star.png'),
     image: require('./image.png'),
+    tattooPen: require('./tattoo-pen.png'),
+    edit: require('./edit.png'),
 }
 
 export default icons;

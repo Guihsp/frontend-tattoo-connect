@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     },
     infoContainer: {
         flexDirection: "row",
-        gap: 5,
+        gap: 10,
         borderBottomColor: Colors.secondaryText,
         borderBottomWidth: 2,
 
@@ -61,6 +61,11 @@ export const styles = StyleSheet.create({
     buttonText: {
         fontSize: 14,
         fontFamily: "Montserrat-SemiBold",
+        color: Colors.primaryText,
+    },
+    price: {
+        fontSize: 14,
+        fontFamily: "Montserrat-Regular",
         color: Colors.primaryText,
     },
 });

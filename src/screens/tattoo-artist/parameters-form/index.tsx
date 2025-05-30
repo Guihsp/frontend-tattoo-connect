@@ -4,6 +4,8 @@ import ParametersForm from "@/src/components/tattooArtist/ParametersForm";
 import { useTattooParameters } from "@/src/hooks/useTattooParameters";
 import { useState } from "react";
 import { router } from "expo-router"; 
+import { Parameter } from "@/src/hooks/useTattooParameters";
+
 
 export default function ParametersFormScreen() {
   const {
@@ -14,11 +16,30 @@ export default function ParametersFormScreen() {
     removeSelected,
     loading,
     submitParameters,
-    alreadyRegistered
+    alreadyRegistered,
+    parameters 
   } = useTattooParameters();
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async () => {
+    // IDs dos parâmetros de cada categoria
+    const estiloIds = (grouped["ESTILO"] || []).map((p: Parameter) => p.id);
+    const localIds = (grouped["LOCAL"] || []).map((p: Parameter) => p.id);
+
+    // Verifica se já existe algum cadastrado OU selecionado no formulário atual
+    const temEstilo =
+      estiloIds.some((id) => alreadyRegistered.includes(id)) ||
+      (selected["ESTILO"] && selected["ESTILO"].length > 0);
+
+    const temLocal =
+      localIds.some((id) => alreadyRegistered.includes(id)) ||
+      (selected["LOCAL"] && selected["LOCAL"].length > 0);
+
+    if (!temEstilo || !temLocal) {
+      setError("Selecione ou cadastre pelo menos um Estilo e um Local.");
+      return;
+    }
+
     const hasEmpty = Object.values(selected).some(
       (arr) => arr.some((p) => !p.id || !p.price)
     );
@@ -29,7 +50,7 @@ export default function ParametersFormScreen() {
     setError(null);
     try {
       await submitParameters();
-      router.replace("/(tattoo-artist)/tattooPatametersManagement"); 
+      router.replace("/(tattoo-artist)/tattooPatametersManagement");
     } catch (e) {
       setError("Erro ao salvar parâmetros.");
     }

@@ -29,4 +29,9 @@ export const styles = StyleSheet.create({
         width: 110,
         height: 40,
     },
+    userInfo: {
+        flexDirection: 'row-reverse',
+        alignItems: 'center',
+        gap: 10,
+    },
 });
