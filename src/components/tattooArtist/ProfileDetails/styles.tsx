@@ -49,7 +49,7 @@ export const styles = StyleSheet.create({
         fontSize: 20,
         fontFamily: "Montserrat-SemiBold",
         color: Colors.primaryText,
-        marginTop: 20,
+        marginVertical: 20,
     },
     error: {
         color: Colors.primaryText,

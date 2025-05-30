@@ -1,6 +1,7 @@
 import { View, Text, ActivityIndicator, Image } from "react-native";
 
 import PortfolioSection from "@/src/components/tattooArtist/PortfolioSection";
+import ParametersListProfile from "@/src/components/tattooArtist/ParametersListProfile";
 import { usePortfolio } from "@/src/hooks/usePortfolio";
 import { useProfile } from "@/src/hooks/useProfile";
 import { styles } from "./styles";
@@ -12,7 +13,7 @@ interface Props {
 
 export default function ProfileDetails({ tattooArtistId }: Props) {
     const { profile, loading, error } = useProfile(tattooArtistId);
-    const { portfolio, handleImagePress, selectedItem, modalVisible, setModalVisible, setSelectedItem } = usePortfolio();
+    const { portfolio, handleImagePress, selectedItem, modalVisible, setModalVisible, setSelectedItem,  } = usePortfolio(tattooArtistId);
 
     if (loading) return <ActivityIndicator size="large" color="#222" />;
     if (error) return <Text style={styles.error}>{error}</Text>;
@@ -44,12 +45,15 @@ export default function ProfileDetails({ tattooArtistId }: Props) {
                 </View>
             </View>
 
-            <View style={styles.stylesList}>
-                <Text style={styles.title}>Estilos</Text>
-                
+            <View>
+                <ParametersListProfile
+                    title="Estilos"
+                    parameters={profile.parameters}
+                />
             </View>
 
             <View >
+                <Text style={styles.title}>Portfólio</Text>
                 <PortfolioSection
                     portfolio={portfolio}
                     loading={loading}

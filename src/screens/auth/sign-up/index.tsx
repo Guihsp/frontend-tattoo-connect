@@ -21,6 +21,19 @@ export default function SignUpScreen() {
         setPhone, 
         setType, 
         handleRegister, 
+        cpf,
+        setCpf,
+        //bio
+        bio,
+        setBio,
+        //studio
+        studioAddress,
+        setStudioAddress,
+        studioName,
+        setStudioName,
+        studioPhone,
+        setStudioPhone,
+    
         error, 
         loading 
     } = useSignUp();
@@ -36,6 +49,8 @@ export default function SignUpScreen() {
                 confirmPassword={confirmPassword}
                 phone={phone}
                 type={type}
+                cpf={cpf}
+                onChangeCpf={setCpf}
                 onChangeName={setName}
                 onChangeEmail={setEmail}
                 onChangePassword={setPassword}
@@ -45,6 +60,17 @@ export default function SignUpScreen() {
                 onSubmit={handleRegister}
                 error={error}
                 loading={loading}
+                //bio
+                bio={bio}
+                onChangeBio={setBio}
+                //studio
+                studioAddress={studioAddress}
+                onChangeStudioAddress={setStudioAddress}
+                studioName={studioName}
+                onChangeStudioName={setStudioName}
+                studioPhone={studioPhone}
+                onChangeStudioPhone={setStudioPhone}
+            
             />
         </Container>
     );

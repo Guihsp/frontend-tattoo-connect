@@ -1,26 +1,26 @@
 import { api } from './api';
 
 interface CreateTattooMatchingPayload {
-    parametersIds: string[];
+    parameterIds: any;
     latitude: number;
     longitude: number;
-    maxDistance: number;
+
     priceOrder: 'asc' | 'desc';
     ratingOrder: 'asc' | 'desc';
     distanceOrder: 'asc' | 'desc';
 }
 
 export const getTattooMatching = async (payload: CreateTattooMatchingPayload) => {
-    const response = await api.get('/tattoo-matching', {
-        params: {
-            parametersIds: payload.parametersIds,
-            latitude: payload.latitude,
-            longitude: payload.longitude,
-            maxDistance: payload.maxDistance,
-            priceOrder: payload.priceOrder,
-            ratingOrder: payload.ratingOrder,
-            distanceOrder: payload.distanceOrder
-        }
-    });
-    return response.data;
+    const params = {
+        ...payload,
+        parameterIds: payload.parameterIds.join(',')
+    };
+    console.log("Parâmetros enviados:", params);
+    try {
+        const response = await api.get('/tattoos/match', {params});
+        return response.data;
+    } catch (error) {
+        console.error("Erro ao buscar tatuadores:", error);
+        throw error;
+    }
 }

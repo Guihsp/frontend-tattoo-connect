@@ -1,8 +1,14 @@
 import { api } from "./api";
 
-export const updateTattooArtist = async (bio: string) => {
-    const response = await api.put('/tattoo-artists/profile', { bio });
-    return response.data;
+export const updateTattooArtist = async (bio: string, cpf: string) => {
+    console.log('Updating tattoo artist bio:', bio + ', CPF:', cpf);
+   try {
+        const response = await api.put('/tattoo-artists/profile', { bio, cpf });
+        return response.data;
+    } catch (error) {
+        console.error('Error updating tattoo artist bio:', error);
+        throw error;
+    }
 }
 
 export const getTattooArtistProfile = async (id: string) => {
@@ -12,19 +18,5 @@ export const getTattooArtistProfile = async (id: string) => {
 
 export const getTattooArtistContact = async (id: string) => {
     const response = await api.get(`/tattoo-artists/${id}/contact`);
-    return response.data;
-}
-
-export const getTattooArtists = async (style: string, latitude: number, longitude: number, orderBy: string, page: number, limit: number) => {
-    const response = await api.get('/tattoo-artists', {
-        params: {
-            style,
-            latitude,
-            longitude,
-            orderBy,
-            page,
-            limit
-        }
-    });
     return response.data;
 }

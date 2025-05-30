@@ -27,7 +27,7 @@ export default function AppHeader() {
         </TouchableOpacity>
       ) : (
         <Text style={styles.text}>
-          Bem-vindo, Cliente
+          Bem-vindo, {user.name}!
         </Text>
       )}
     </View>

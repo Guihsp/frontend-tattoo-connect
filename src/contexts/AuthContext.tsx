@@ -5,10 +5,13 @@ import { saveToken, removeToken, getToken } from '@/src/utils/storage';
 import { useRouter } from 'expo-router';
 import { getUser } from '@/src/services/api/user';
 import { User, UserRole } from '@/src/types/User';
+import * as Location from 'expo-location';
+import { updateTattooArtist } from '@/src/services/api/tattoArtist';
+import { createStudio } from '@/src/services/api/studio';
 
 interface AuthContextData {
     signIn: (email: string, password: string) => Promise<void>;
-    signUp: (name: string, email: string, password: string, phone: string, type: string) => Promise<void>;
+    signUp: (name: string, email: string, password: string, phone: string, type: string, cpf: string, bio: string, studioAddress: string, studioName: string, studioPhone: string) => Promise<void>;
     handleSignOut: () => Promise<void>;
     token: string | null;
     user: User | null;
@@ -20,6 +23,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [token, setToken] = useState<string | null>(null);
     const [user, setUser] = useState<User | null>(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+    const [loading, setLoading] = useState(false);
+    
 
     const router = useRouter();
 
@@ -78,7 +84,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         }
     };
 
-    const signUp = async (name: string, email: string, password: string, phone: string, type: string) => {
+    const signUp = async (name: string, email: string, password: string, phone: string, type: string, cpf: string, bio: string, studioAddress: string, studioName: string, studioPhone: string) => {
         try {
             const response = await registerRequest(name, email, password, phone, type);
             const accessToken = response.access_token;
@@ -95,12 +101,36 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
                 role: userData.type,
                 token: accessToken,
             };
-
             setUser(mappedUser); 
 
             if (userData.type === 'CLIENT') {
                 router.replace('/(client)');
             } else if (userData.type === 'TATTOO_ARTIST') {
+                console.log("aqui")
+                await updateTattooArtist(bio, cpf);
+
+                const { status } = await Location.requestForegroundPermissionsAsync();
+                if (status !== 'granted') {
+                    setError('Permissão de localização negada.');
+                    setLoading(false);
+                    return;
+                }
+                const results = await Location.geocodeAsync(studioAddress);
+                if (!results.length) {
+                    setError('Endereço não encontrado.');
+                    setLoading(false);
+                    return;
+                }
+                const { latitude, longitude } = results[0];
+                const studioData = {
+                    name: studioName,
+                    address: studioAddress,
+                    latitude: latitude,
+                    longitude: longitude,
+                    phone: studioPhone,
+                };
+                await createStudio(studioData);
+
                 router.replace('/(tattoo-artist)');
             }
         } catch (error) {

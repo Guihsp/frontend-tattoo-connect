@@ -10,6 +10,8 @@ const icons = {
     locationPin: require('./location-pin.png'),
     email: require('./email.png'),
     phone: require('./phone.png'),
+    search: require('./search.png'),
+    star: require('./star.png'),
 }
 
 export default icons;

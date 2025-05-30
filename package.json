@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
+    "@mercadopago/sdk-react": "^1.0.3",
     "@react-native-async-storage/async-storage": "^2.1.2",
     "@react-native-picker/picker": "^2.11.0",
     "@react-navigation/native": "^7.1.6",
@@ -29,6 +30,8 @@
     "expo-status-bar": "~2.2.3",
     "expo-system-ui": "~5.0.7",
     "expo-web-browser": "~14.1.6",
+    "mercadopago": "^2.7.0",
+    "qs": "^6.14.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-native": "0.79.2",

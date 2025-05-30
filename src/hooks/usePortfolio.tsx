@@ -8,7 +8,7 @@ export interface PortfolioItem {
     description: string;
 }
 
-export function usePortfolio() {
+export function usePortfolio(tattooArtistId?: string) {
     const { user } = useAuth();
     const [portfolio, setPortfolio] = useState<PortfolioItem[]>([]);
     const [loading, setLoading] = useState(false);
@@ -19,11 +19,12 @@ export function usePortfolio() {
     const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
 
     const fetchPortfolio = async () => {
-        if (!user?.id) return;
+        const id = tattooArtistId || user?.id;
+        if (!id) return;
         setLoading(true);
         setError(null);
         try {
-            const data = await getPortfolio(user.id);
+            const data = await getPortfolio(id);
             setPortfolio(Array.isArray(data) ? data : [data]);
         } catch (err) {
             setError("Erro ao carregar portfólio.");
@@ -34,7 +35,7 @@ export function usePortfolio() {
 
     useEffect(() => {
         fetchPortfolio();
-    }, [user?.id]);
+    }, [tattooArtistId, user?.id]);
 
     const handleImagePress = (item: PortfolioItem) => {
         setSelectedItem(item);

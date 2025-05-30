@@ -26,5 +26,6 @@ export function useProfile(tattooArtistId?: string) {
         fetchProfile();
     }, [tattooArtistId, user?.id]);
 
+
     return { profile, loading, error };
 }

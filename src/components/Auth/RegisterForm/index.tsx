@@ -13,6 +13,8 @@ interface RegisterFormProps {
     confirmPassword: string;
     phone: string;
     type: string;
+    cpf: string;
+    onChangeCpf: (cpf: string) => void;
     onChangeName: (name: string) => void;
     onChangeEmail: (email: string) => void;
     onChangePassword: (password: string) => void;
@@ -20,6 +22,18 @@ interface RegisterFormProps {
     onChangePhone: (phone: string) => void;
     onChangeType: (type: 'CLIENT' | 'TATTOO_ARTIST') => void;
     onSubmit: () => void;
+
+    //bio
+    bio: string;
+    onChangeBio: (bio: string) => void;
+    //studio
+    studioAddress: string;
+    onChangeStudioAddress: (studioAddress: string) => void;
+    studioName: string;
+    onChangeStudioName: (studioName: string) => void;
+    studioPhone: string;
+    onChangeStudioPhone: (studioPhone: string) => void;
+    
     error: string | null;
     loading: boolean;
 }
@@ -31,6 +45,8 @@ export const RegisterForm = ({
     confirmPassword,
     phone,
     type,
+    cpf,
+    onChangeCpf,
     onChangeName,
     onChangeEmail,
     onChangePassword,
@@ -38,6 +54,16 @@ export const RegisterForm = ({
     onChangePhone,
     onChangeType,
     onSubmit,
+    //bio
+    bio,
+    onChangeBio,
+    //studio
+    studioAddress,
+    onChangeStudioAddress,
+    studioName,
+    onChangeStudioName,
+    studioPhone,
+    onChangeStudioPhone,
     error,
     loading
 }: RegisterFormProps) => {
@@ -97,6 +123,18 @@ export const RegisterForm = ({
                 />
             </View>
             <View>
+                <Text style={styles.label}>CPF:</Text>
+                <TextInput
+                    value={cpf}
+                    onChangeText={onChangeCpf}
+                    placeholder="Digite seu CPF..."
+                    style={styles.input}
+                    editable={!loading}
+                    keyboardType="numeric"
+                    placeholderTextColor={styles.inputPlaceholder.color}
+                />
+            </View>
+            <View>
                 <Text style={styles.label}>Senha:</Text>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <TextInput
@@ -145,6 +183,60 @@ export const RegisterForm = ({
                     placeholderTextColor={styles.inputPlaceholder.color}
                 />
             </View>
+            { type === "TATTOO_ARTIST" && (
+                <>
+                    <View>
+                        <Text style={styles.label}>Digite sua bio:</Text>
+                        <TextInput
+                            value={bio}
+                            onChangeText={onChangeBio}
+                            placeholder="Fale um pouco sobre você..."
+                            style={styles.input}
+                            editable={!loading}
+                            multiline
+                            numberOfLines={4}
+                            placeholderTextColor={styles.inputPlaceholder.color}
+                        />
+                    </View>
+
+                    <View>
+                        <Text style={styles.label}>Endereço do estudio:</Text>
+                        <TextInput
+                            value={studioAddress}
+                            onChangeText={onChangeStudioAddress}
+                            placeholder="Digite o endereço do seu estúdio..."
+                            style={styles.input}
+                            editable={!loading}
+                            placeholderTextColor={styles.inputPlaceholder.color}
+                        />
+                    </View>
+
+                    <View>
+                        <Text style={styles.label}>Nome do estdúio:</Text>
+                        <TextInput
+                            value={studioName}
+                            onChangeText={onChangeStudioName}
+                            placeholder="Digite o nome do seu estúdio..."
+                            style={styles.input}
+                            editable={!loading}
+                            placeholderTextColor={styles.inputPlaceholder.color}
+                        />
+                    </View>
+
+                    <View>
+                        <Text style={styles.label}>Telefone do estúdio:</Text>
+                        <TextInput
+                            value={studioPhone}
+                            onChangeText={onChangeStudioPhone}
+                            placeholder="Digite o telefone do seu estúdio..."
+                            style={styles.input}
+                            editable={!loading}
+                            keyboardType="phone-pad"
+                            placeholderTextColor={styles.inputPlaceholder.color}
+                        />
+                    </View>
+                </>
+            )}
             {error ? (
                 <Text style={{ color: Colors.error, textAlign: 'center', marginBottom: 10 }}>{error}</Text>
             ) : null}

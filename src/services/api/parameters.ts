@@ -18,7 +18,7 @@ export const createTattooArtistParameter = async (userId: string, parameterId: s
 export const getAllTattooArtistParameters = async (userId: string) => {
     const response = await api.get(`/tattoo-artist-parameters/${userId}`);
     return response.data;
-}   
+}
 
 export const updateTattooArtistParameter = async (id: string, parameterId: string, price: number, category: string, name: string) => {
    try {
